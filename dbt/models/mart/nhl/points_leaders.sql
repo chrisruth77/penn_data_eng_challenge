@@ -1,3 +1,4 @@
 select 
-* -- TODO replace with correct projection columns
-from {{ ref('nhl_players') }}  -- or other tables
+team_name, full_name, max(points) as max_points 
+from {{ ref('nhl_players') }}
+group by team_name 
